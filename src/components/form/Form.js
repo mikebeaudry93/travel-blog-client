@@ -1,7 +1,11 @@
 import React from "react";
 import axios from "axios";
+import { scroller } from "react-scroll";
 import "./form.scss";
 import image from "../../assets/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg";
+
+// components
+import Loader from "../loader/Loader";
 
 function Form({ getTravelStories }) {
   const [formValues, setFormValues] = React.useState({
@@ -13,6 +17,9 @@ function Form({ getTravelStories }) {
   });
   const [imageData, setImageData] = React.useState("");
   const [images, setFile] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [charLeft, setCharLeft] = React.useState(340);
+  const [maxChar] = React.useState(340);
 
   async function saveTravelStory(e) {
     e.preventDefault();
@@ -25,6 +32,8 @@ function Form({ getTravelStories }) {
         formData.append(key, formValues[key]);
       });
 
+      setIsLoading(true);
+
       await axios.post("http://localhost:5000/api/travel-post", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -33,7 +42,9 @@ function Form({ getTravelStories }) {
     } catch (err) {
       console.log("an err occured==>>", err);
     }
-
+    setCharLeft(340);
+    setIsLoading(false);
+    scrollToElement("posts");
     resetFormFields();
     getTravelStories();
   }
@@ -69,8 +80,29 @@ function Form({ getTravelStories }) {
     setFile("");
   }
 
+  const scrollToElement = (element) => {
+    scroller.scrollTo(element, {
+      duration: 2500,
+      delay: 50,
+      smooth: true,
+      offset: 1000,
+    });
+  };
+
+  const handleWordCount = (e) => {
+    const charCount = e.target.value.length;
+    const charLeft = maxChar - charCount;
+    setCharLeft(charLeft);
+  };
+
+  const handleTextAreaOnChange = (e) => {
+    handleWordCount(e);
+    setFormValues({ ...formValues, description: e.target.value });
+  };
+
   return (
-    <div>
+    <React.Fragment>
+      {isLoading && <Loader />}
       <div className="container form-container">
         <div className="black-container"></div>
         <img className="bg-image" src={image} alt="background" />
@@ -150,17 +182,17 @@ function Form({ getTravelStories }) {
               type="text"
               rows="10"
               cols="50"
+              maxlength="340"
               // placeholder="Tell us details about your trip"
               value={formValues.description}
-              onChange={(e) =>
-                setFormValues({ ...formValues, description: e.target.value })
-              }
+              onChange={(e) => handleTextAreaOnChange(e)}
               required
             />
             <label htmlFor="story-description">
               Tell us details about your trip...
             </label>
           </div>
+          <p className="char-left">Characters left: {charLeft}/340</p>
 
           <label htmlFor="image" className="image-label">
             Image
@@ -179,7 +211,7 @@ function Form({ getTravelStories }) {
           </button>
         </form>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

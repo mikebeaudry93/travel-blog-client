@@ -25,6 +25,7 @@
   width: 1200px;
   box-shadow: $box-shadow;
   overflow: hidden;
+  background: rgba(253, 253, 253, 0.575);
 
   h1,
   h4,
@@ -32,7 +33,7 @@
   p {
     margin-bottom: 1.5rem;
     margin-left: 2.5rem;
-    margin-top: 1rem;
+    line-height: 26px;
   }
 
   h1 {
@@ -47,12 +48,13 @@
     position: relative;
 
     span {
-      color: #59a9c9;
+      color: #065e81;
       font-weight: 600;
     }
 
     p {
       font-size: 14px;
+      margin-right: 2.5rem;
     }
 
     .subtitle-box {

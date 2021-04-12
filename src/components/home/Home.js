@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./home.scss";
+import { Element } from "react-scroll";
 
 // compoenents
 
@@ -62,7 +63,9 @@ function Home() {
           showModal={showModal}
         />
       )}
-      <Form getTravelStories={getTravelStories} />
+      <Element name="posts">
+        <Form getTravelStories={getTravelStories} />
+      </Element>
       <div className="posts-container">{sortedData()}</div>
     </div>
   );
