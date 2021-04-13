@@ -82,7 +82,7 @@ function Form({ getTravelStories }) {
 
   const scrollToElement = (element) => {
     scroller.scrollTo(element, {
-      duration: 2500,
+      duration: 1000,
       delay: 50,
       smooth: true,
       offset: 1000,
