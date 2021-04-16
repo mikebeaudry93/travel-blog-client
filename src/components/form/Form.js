@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { scroller } from "react-scroll";
 import "./form.scss";
+import domain from "../../util/domain";
 
 // components
 import Loader from "../loader/Loader";
@@ -33,7 +34,7 @@ function Form({ getTravelStories }) {
 
       setIsLoading(true);
 
-      await axios.post("http://localhost:5000/api/travel-post", formData, {
+      await axios.post(`${domain}/api/travel-post`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

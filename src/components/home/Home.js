@@ -3,6 +3,7 @@ import axios from "axios";
 import "./home.scss";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
+import domain from "../../util/domain";
 
 // compoenents
 
@@ -26,7 +27,7 @@ function Home() {
 
   async function getTravelStories() {
     try {
-      const response = await axios.get("http://localhost:5000/api/travel-post");
+      const response = await axios.get(`${domain}/api/travel-post`);
 
       setTravelStories(response.data);
     } catch (err) {

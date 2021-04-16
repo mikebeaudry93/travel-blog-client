@@ -1,6 +1,7 @@
 import React from "react";
 import "./modal.scss";
 import axios from "axios";
+import domain from "../../util/domain";
 
 function Modal({ toggleModal, cloudId, getTravelStories, showModal }) {
   const [successModal, setSuccessModal] = React.useState(false);
@@ -8,7 +9,7 @@ function Modal({ toggleModal, cloudId, getTravelStories, showModal }) {
   async function deletePost(e) {
     e.preventDefault();
     try {
-      await axios.delete(`http://localhost:5000/api/travel-post/${cloudId}`);
+      await axios.delete(`${domain}/api/travel-post/${cloudId}`);
       setShowDeleteModal(false);
       setSuccessModal(true);
       getTravelStories();
