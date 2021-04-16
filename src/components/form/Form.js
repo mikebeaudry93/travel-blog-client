@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { scroller } from "react-scroll";
 import "./form.scss";
-import image from "../../assets/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg";
 
 // components
 import Loader from "../loader/Loader";
@@ -104,21 +103,6 @@ function Form({ getTravelStories }) {
     <React.Fragment>
       {isLoading && <Loader />}
       <div className="container form-container">
-        <div className="black-container"></div>
-        <img className="bg-image" src={image} alt="background" />
-        <h1>Travel Logger</h1>
-        <h2>
-          <span>Customize</span> your Travel Experience
-        </h2>
-        <p className="form-p-text">
-          Document your favourite travel experiences and never forget them
-          again. Logging them will not only bring back great memories but also
-          help you remeber all the details when you want to share them. Bring
-          back that nostalgic feeling of being on a beach in the middle of
-          nowhere, or hiking up an immeasurable mountain in the valleys of
-          British Columbia. Remeber the beauty of our planet and share your
-          stories so that everyone can appreciate what the world has to offer.
-        </p>
         <form onSubmit={saveTravelStory}>
           <div className="input-container">
             <input
@@ -182,7 +166,7 @@ function Form({ getTravelStories }) {
               type="text"
               rows="10"
               cols="50"
-              maxlength="340"
+              maxLength="340"
               // placeholder="Tell us details about your trip"
               value={formValues.description}
               onChange={(e) => handleTextAreaOnChange(e)}

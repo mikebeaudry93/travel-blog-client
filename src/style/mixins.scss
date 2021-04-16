@@ -1,0 +1,9 @@
+@mixin link() {
+  color: $text-light-color;
+  font-weight: bold;
+
+  &:hover {
+    // text-decoration: underline;
+    cursor: pointer;
+  }
+}

@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import "./home.scss";
 import { Element } from "react-scroll";
+import { Link } from "react-router-dom";
 
 // compoenents
 
 import Form from "../form/Form";
 import Posts from "../posts/Posts";
 import Modal from "../modal/Modal";
+import Hero from "../hero/Hero";
+import UserContext from "../../context/UserContext";
 
 function Home() {
   const [travelStories, setTravelStories] = React.useState([]);
   const [showModal, setShowModal] = React.useState(false);
   const [cloudId, setCloudId] = React.useState("");
 
+  const { user } = useContext(UserContext);
+
   React.useEffect(() => {
-    getTravelStories();
-  }, []);
+    if (!user) setTravelStories([]);
+    else getTravelStories();
+  }, [user]);
 
   async function getTravelStories() {
     try {
@@ -63,8 +69,14 @@ function Home() {
           showModal={showModal}
         />
       )}
+      <Hero />
       <Element name="posts">
-        <Form getTravelStories={getTravelStories} />
+        {user && <Form getTravelStories={getTravelStories} />}
+        {user === null && (
+          <Link className="btn-primary" to="/register">
+            Register here
+          </Link>
+        )}
       </Element>
       <div className="posts-container">{sortedData()}</div>
     </div>

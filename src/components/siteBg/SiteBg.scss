@@ -1,0 +1,22 @@
+.black-container {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  // background-color: black;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 1;
+}
+.bg-image {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 1;
+  object-fit: cover;
+  // display: none;
+}

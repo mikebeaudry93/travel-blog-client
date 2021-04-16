@@ -1,0 +1,87 @@
+@import "../../app.scss";
+
+.hero-container {
+  //   position: fixed;
+  position: relative;
+  color: $text-light-color;
+  padding: 0rem 8rem;
+  // box-shadow: $box-shadow;
+
+  .title-box {
+    margin-top: 4rem;
+    display: flex;
+    h1 {
+      margin-right: 0.8rem;
+      padding-top: 0.7rem;
+      font-size: 70px;
+      // text-transform: uppercase;
+    }
+    div {
+      // border: 1px solid white;
+      // padding: 1rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.479);
+      text-align: center;
+      box-shadow: $box-shadow;
+
+      h1 {
+        background-image: url("../../assets/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg");
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+        padding: 0.7rem 1.4rem;
+        // color: rgb(221, 214, 214);
+        // text-transform: uppercase;
+        // color: rgb(3, 3, 3);
+        position: relative;
+        left: 3px;
+      }
+    }
+  }
+
+  h2,
+  p {
+    margin-bottom: 2rem;
+    z-index: 100;
+    opacity: 1;
+    // text-align: center;
+  }
+
+  h1 {
+    // padding-top: 2rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    // text-align: center;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: $text-light-color;
+    // font-style: italic;
+  }
+
+  .form-p-text {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5rem;
+    // font-style: italic;
+    // text-transform: uppercase;
+  }
+
+  span {
+    // color: #4897d8;
+    font-weight: 600;
+  }
+
+  .gucci-swag {
+    color: $text-light-color;
+  }
+}

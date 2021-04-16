@@ -1,14 +1,20 @@
 import React from "react";
 import "./app.scss";
+import axios from "axios";
 
 // components
-import Home from "./components/home/Home";
+import Router from "./Router";
+
+// context
+import { UserContextProvider } from "./context/UserContext";
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <React.Fragment>
-      <Home />
-    </React.Fragment>
+    <UserContextProvider>
+      <Router />
+    </UserContextProvider>
   );
 }
 

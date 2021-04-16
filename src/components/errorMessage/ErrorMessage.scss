@@ -1,0 +1,26 @@
+.error-message {
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+  padding: 0.3rem;
+  border: 1px solid rgb(204, 84, 84);
+  border-radius: 5px;
+  background: rgba(148, 45, 45, 0.432);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    font-size: 13px;
+    color: rgb(223, 79, 79);
+    // color: white;
+    font-weight: 600;
+  }
+
+  button {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    // background: darkred;
+    color: red;
+  }
+}

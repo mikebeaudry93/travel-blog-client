@@ -1,25 +1,15 @@
 @import "../../app.scss";
 
-.container {
-  form {
-    margin-bottom: 6rem;
-    padding-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #555;
-
-    input,
-    textarea {
-      margin-bottom: 1rem;
-      padding: 1rem;
-    }
-  }
-}
-
-.form-container {
-  position: relative;
+.auth-form {
+  // position: relative;
   color: $text-light-color;
-  padding: 0rem 8rem;
+  padding: 0rem 12rem;
+  margin-bottom: 10rem;
+
+  h1 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
 
   .input-container {
     display: flex;
@@ -70,63 +60,30 @@
         border-bottom: 1px solid $primary-color;
       }
 
+      &::placeholder {
+        opacity: 0;
+      }
+
       &:focus + label,
-      &:valid + label {
-        top: -12px;
+      &:not(:placeholder-shown) + label {
+        top: -11px;
         font-size: 10px;
       }
     }
-
-    textarea {
-      border: 0;
-      border-bottom: 1px solid #555;
-      background: transparent;
-      width: 100%;
-      padding: 8px 0 5px 0;
-      font-size: 13px;
-      font-weight: 700;
-      color: rgb(255, 255, 255);
-
-      &:focus {
-        border: none;
-        outline: none;
-        border-bottom: 1px solid $primary-color;
-      }
-
-      &:focus ~ label,
-      &:valid ~ label {
-        top: -12px;
-        font-size: 10px;
-      }
-    }
-  }
-
-  #image {
-    margin-top: 1rem;
-  }
-
-  .image-label {
-    margin-top: 2rem;
-    font-size: 13px;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: rgb(207, 207, 207);
-  }
-
-  textarea {
-    resize: none;
-    // opacity: 0.5;
-  }
-
-  .char-left {
-    font-size: 12px;
-    // text-transform: capitalize;
   }
 
   .btn-form {
     margin: 1rem 0rem 3rem 0rem;
     font-size: 14px;
-    font-weight: 600;
+    // font-weight: 600;
     // align-self: center;
+  }
+
+  a {
+    color: $text-brown-color;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 }

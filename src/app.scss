@@ -1,8 +1,15 @@
+@import "./style/mixins.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,100&family=Righteous&display=swap");
 
 // variables
-$primary-color: #73bbe0;
-$secondary-color: #54a9c3;
+$primary-color: #77b0df;
+$secondary-color: #4897d8;
+$darker-blue: #1863b9;
+
+$text-brown-color: rgb(221, 214, 214);
+$text-light-color: #ebebeb;
+$green-color: #409c3c;
 
 $box-shadow: 0 10px 20px rgba(176, 218, 255, 0.19),
   0 6px 6px rgba(0, 0, 0, 0.23);
@@ -18,13 +25,23 @@ h1 {
   font-family: "Righteous", cursive;
 }
 
+// reset
+
+button {
+  border: unset;
+  background: unset;
+  font: unset;
+  color: unset;
+  cursor: pointer;
+}
+
 // buttons
 .btn-primary {
   width: 130px;
   height: 35px;
   text-transform: capitalize;
   font-weight: 500;
-  background: $primary-color;
+  background: $secondary-color;
   color: white;
   border-color: $primary-color;
   border: 0px;
@@ -34,7 +51,7 @@ h1 {
 
   &:hover {
     cursor: pointer;
-    background: $secondary-color;
+    background: $primary-color;
     // background: rgba(255, 255, 255, 0.5);
     // color: black;
   }
@@ -42,4 +59,10 @@ h1 {
   &:focus {
     outline: none;
   }
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+  @include link();
 }

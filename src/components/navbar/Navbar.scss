@@ -1,0 +1,43 @@
+@import "../../app.scss";
+
+.navbar {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-light-color;
+  font-size: 13px;
+  text-transform: uppercase;
+
+  h1 {
+    font-size: 1.2rem;
+    // color: $text-brown-color;
+  }
+
+  .log-register {
+    display: flex;
+    .login-box {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  a {
+    margin: 0rem 1rem 0rem 0.5rem;
+  }
+
+  button {
+    // padding: 2rem;
+    font-weight: 600;
+    color: $text-light-color;
+    font-size: 13px;
+    text-transform: uppercase;
+    outline: none;
+
+    &:focus,
+    &:active {
+      outline: none;
+      -moz-outline-style: none;
+    }
+  }
+}
