@@ -3,16 +3,13 @@ import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import { BsPeopleCircle } from "react-icons/bs";
 import UserContext from "../../context/UserContext";
-import axios from "axios";
-import domain from "../../util/domain";
 
 function Navbar() {
-  const { user, getUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   async function logOut() {
-    await axios.get(`${domain}/auth/logOut`);
-
-    await getUser();
+    sessionStorage.removeItem("token");
+    setUser(null);
   }
 
   return (

@@ -1,3 +1,3 @@
-const domain = "https://travel-logger-server.herokuapp.com";
+const domain = process.env.REACT_APP_DOMAIN_URL;
 
 export default domain;

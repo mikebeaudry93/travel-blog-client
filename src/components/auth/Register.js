@@ -28,19 +28,17 @@ function Register() {
     };
 
     try {
-      await axios.post(`${domain}/auth/`, registeredUser);
+      const { data } = await axios.post(`${domain}/auth/`, registeredUser);
+      sessionStorage.setItem("token", data.token);
+      await getUser();
+      history.push("/");
     } catch (err) {
       if (err.response) {
         if (err.response.data.errorMessage) {
           setErrorMessage(err.response.data.errorMessage);
         }
       }
-      return;
     }
-
-    await getUser();
-
-    history.push("/");
   }
 
   return (

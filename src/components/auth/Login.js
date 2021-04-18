@@ -26,19 +26,17 @@ function Login() {
     };
 
     try {
-      await axios.post(`${domain}/auth/login`, loginUser);
+      const { data } = await axios.post(`${domain}/auth/login`, loginUser);
+      sessionStorage.setItem("token", data.token);
+      await getUser();
+      history.push("/");
     } catch (err) {
       if (err.response) {
         if (err.response.data.errorMessage) {
           setErrorMessage(err.response.data.errorMessage);
         }
       }
-      return;
     }
-
-    await getUser();
-
-    history.push("/");
   }
 
   return (

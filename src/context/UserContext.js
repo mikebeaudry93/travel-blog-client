@@ -22,7 +22,7 @@ function UserContextProvider(props) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, getUser }}>
+    <UserContext.Provider value={{ user, getUser, setUser }}>
       {props.children}
     </UserContext.Provider>
   );

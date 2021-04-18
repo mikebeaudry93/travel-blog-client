@@ -9,6 +9,8 @@ import Router from "./Router";
 import { UserContextProvider } from "./context/UserContext";
 
 axios.defaults.withCredentials = true;
+const token = sessionStorage.getItem("token");
+if (token) axios.defaults.headers.authorization = token;
 
 function App() {
   return (
