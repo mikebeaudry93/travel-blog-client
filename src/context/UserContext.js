@@ -11,6 +11,7 @@ function UserContextProvider(props) {
     try {
       const response = await axios.get(`${domain}/auth/loggedIn`);
       setUser(response.data);
+      console.log(response);
     } catch (err) {
       console.log(err);
     }

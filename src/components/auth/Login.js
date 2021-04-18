@@ -58,7 +58,6 @@ function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="fake placeholder"
-            required
           />
           <label htmlFor="email">Email</label>
         </div>
@@ -70,7 +69,6 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="fake placeholder"
-            required
           />
           <label htmlFor="password">Password</label>
         </div>
