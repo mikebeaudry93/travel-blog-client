@@ -73,7 +73,7 @@ function Home() {
       <Hero />
       <Element name="posts">
         {user && <Form getTravelStories={getTravelStories} />}
-        {user === null && (
+        {!user && (
           <Link className="btn-primary" to="/register">
             Register here
           </Link>

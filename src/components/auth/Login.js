@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "../../util/axios";
 import "./authForm.scss";
 import UserContext from "../../context/UserContext";
@@ -8,14 +8,12 @@ import domain from "../../util/domain";
 // components
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
-function Login() {
+function Login({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { getUser } = useContext(UserContext);
-
-  const history = useHistory();
+  const { getUser, setUser } = useContext(UserContext);
 
   async function loginUser(e) {
     e.preventDefault();
@@ -28,7 +26,8 @@ function Login() {
     try {
       const { data } = await axios.post(`${domain}/auth/login`, loginUser);
       sessionStorage.setItem("token", data.token);
-      await getUser();
+      const user = await getUser();
+      setUser(user);
       history.push("/");
     } catch (err) {
       if (err.response) {

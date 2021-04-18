@@ -14,7 +14,7 @@ function Register() {
   const [passwordVerify, setPasswordVerify] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { getUser } = useContext(UserContext);
+  const { getUser, setUser } = useContext(UserContext);
 
   const history = useHistory();
 
@@ -30,7 +30,8 @@ function Register() {
     try {
       const { data } = await axios.post(`${domain}/auth/`, registeredUser);
       sessionStorage.setItem("token", data.token);
-      await getUser();
+      const user = await getUser();
+      setUser(user);
       history.push("/");
     } catch (err) {
       if (err.response) {
