@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+import axios from "../../util/axios";
 import "./authForm.scss";
 import UserContext from "../../context/UserContext";
 import domain from "../../util/domain";

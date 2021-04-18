@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import axios from "axios";
+import axios from "../../util/axios";
 import "./home.scss";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";

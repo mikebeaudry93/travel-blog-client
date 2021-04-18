@@ -1,6 +1,6 @@
 import React from "react";
 import "./modal.scss";
-import axios from "axios";
+import axios from "../../util/axios";
 import domain from "../../util/domain";
 
 function Modal({ toggleModal, cloudId, getTravelStories, showModal }) {

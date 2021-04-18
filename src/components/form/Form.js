@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axios from "../../util/axios";
 import { scroller } from "react-scroll";
 import "./form.scss";
 import domain from "../../util/domain";
