@@ -6,12 +6,15 @@ import Router from "./Router";
 
 // context
 import { UserContextProvider } from "./context/UserContext";
+import { ModelContextProvider } from "./context/ModelContext";
 
 function App() {
   return (
-    <UserContextProvider>
-      <Router />
-    </UserContextProvider>
+    <ModelContextProvider>
+      <UserContextProvider>
+        <Router />
+      </UserContextProvider>
+    </ModelContextProvider>
   );
 }
 

@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./posts.scss";
+
+// context
+import ModelContext from "../../context/ModelContext";
 
 function Posts({
   item: {
@@ -13,6 +16,14 @@ function Posts({
   },
   toggleModal,
 }) {
+  const { setShowDeleteModal, setShowModalContext } = useContext(ModelContext);
+
+  const toggleDeleteModal = () => {
+    toggleModal(cloudinary_public_id);
+    setShowDeleteModal(true);
+    setShowModalContext(false);
+  };
+
   return (
     <div className="post-container">
       <img className="post-image" src={cloudinary_secure_url} alt={title} />
@@ -40,10 +51,7 @@ function Posts({
           {description}
         </p>
 
-        <button
-          className="btn-primary btn-delete"
-          onClick={() => toggleModal(cloudinary_public_id)}
-        >
+        <button className="btn-primary btn-delete" onClick={toggleDeleteModal}>
           Delete
         </button>
       </div>

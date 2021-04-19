@@ -11,14 +11,19 @@ import Form from "../form/Form";
 import Posts from "../posts/Posts";
 import Modal from "../modal/Modal";
 import Hero from "../hero/Hero";
+
+// context
 import UserContext from "../../context/UserContext";
+import ModelContext from "../../context/ModelContext";
 
 function Home() {
   const [travelStories, setTravelStories] = React.useState([]);
-  const [showModal, setShowModal] = React.useState(false);
+
   const [cloudId, setCloudId] = React.useState("");
 
   const { user } = useContext(UserContext);
+
+  const { showModal, setShowModal } = useContext(ModelContext);
 
   React.useEffect(() => {
     if (!user) setTravelStories([]);
@@ -67,7 +72,7 @@ function Home() {
           toggleModal={toggleModal}
           cloudId={cloudId}
           getTravelStories={getTravelStories}
-          showModal={showModal}
+          
         />
       )}
       <Hero />

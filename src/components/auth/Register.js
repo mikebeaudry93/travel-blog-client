@@ -7,19 +7,33 @@ import domain from "../../util/domain";
 
 // components
 import ErrorMessage from "../errorMessage/ErrorMessage";
+import Loader from "../loader/Loader";
+
+// context
+import ModelContext from "../../context/ModelContext";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVerify, setPasswordVerify] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const { getUser, setUser } = useContext(UserContext);
+
+  const {
+    setShowModalContext,
+    setShowModal,
+    setShowDeleteModal,
+    setEmailForModal,
+  } = useContext(ModelContext);
 
   const history = useHistory();
 
   async function registerUser(e) {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const registeredUser = {
       email,
@@ -31,12 +45,22 @@ function Register() {
       const { data } = await axios.post(`${domain}/auth/`, registeredUser);
       sessionStorage.setItem("token", data.token);
       const user = await getUser();
+      setEmailForModal(email);
+      setShowDeleteModal(false);
+      setIsLoading(false);
       setUser(user);
+      setShowModalContext(true);
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModalContext(false);
+        setShowModal(false);
+      }, 4000);
       history.push("/");
     } catch (err) {
       if (err.response) {
         if (err.response.data.errorMessage) {
           setErrorMessage(err.response.data.errorMessage);
+          setIsLoading(false);
         }
       }
     }
@@ -44,6 +68,7 @@ function Register() {
 
   return (
     <div className="auth-form">
+      {isLoading && <Loader />}
       <h1>Register a new account</h1>
       {errorMessage && (
         <ErrorMessage
