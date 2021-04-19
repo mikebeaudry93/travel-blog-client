@@ -37,8 +37,10 @@ button {
 
 // buttons
 .btn-primary {
-  width: 130px;
-  height: 35px;
+  min-width: 130px;
+  min-height: 35px;
+  font-size: 17px;
+  padding: 0.8rem 3rem;
   text-transform: capitalize;
   font-weight: 500;
   background: $secondary-color;

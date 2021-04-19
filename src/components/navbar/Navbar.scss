@@ -1,16 +1,16 @@
 @import "../../app.scss";
 
 .navbar {
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: $text-light-color;
-  font-size: 13px;
+  font-size: 17px;
   text-transform: uppercase;
 
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     // color: $text-brown-color;
   }
 
@@ -30,7 +30,7 @@
     // padding: 2rem;
     font-weight: 600;
     color: $text-light-color;
-    font-size: 13px;
+    font-size: 17px;
     text-transform: uppercase;
     outline: none;
 

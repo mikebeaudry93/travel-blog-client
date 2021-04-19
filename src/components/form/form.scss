@@ -10,7 +10,7 @@
 
     input,
     textarea {
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
       padding: 1rem;
     }
   }
@@ -48,19 +48,19 @@
       color: rgb(207, 207, 207);
       pointer-events: none;
       font-weight: 800;
-      font-size: 13px;
+      font-size: 15px;
       transition: all 0.3s ease-in-out;
       text-transform: uppercase;
     }
 
     input {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       border: 0;
       border-bottom: 1px solid #555;
       background: transparent;
       width: 100%;
       padding: 8px 0 5px 0;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: rgb(255, 255, 255);
 
@@ -72,18 +72,19 @@
 
       &:focus + label,
       &:valid + label {
-        top: -12px;
-        font-size: 10px;
+        top: -17px;
+        font-size: 12px;
       }
     }
 
     textarea {
+      margin-bottom: 1rem;
       border: 0;
       border-bottom: 1px solid #555;
       background: transparent;
       width: 100%;
       padding: 8px 0 5px 0;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: rgb(255, 255, 255);
 
@@ -95,19 +96,20 @@
 
       &:focus ~ label,
       &:valid ~ label {
-        top: -12px;
-        font-size: 10px;
+        top: -17px;
+        font-size: 12px;
       }
     }
   }
 
   #image {
     margin-top: 1rem;
+    font-size: 15px;
   }
 
   .image-label {
     margin-top: 2rem;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 800;
     text-transform: uppercase;
     color: rgb(207, 207, 207);
@@ -119,14 +121,12 @@
   }
 
   .char-left {
-    font-size: 12px;
+    font-size: 14px;
     // text-transform: capitalize;
   }
 
   .btn-form {
     margin: 1rem 0rem 3rem 0rem;
-    font-size: 14px;
-    font-weight: 600;
-    // align-self: center;
+    align-self: flex-start;
   }
 }
