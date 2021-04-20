@@ -1,11 +1,9 @@
 @import "../../app.scss";
 
 .hero-container {
-  //   position: fixed;
   position: relative;
   color: $text-light-color;
   padding: 0rem 8rem;
-  // box-shadow: $box-shadow;
 
   .title-box {
     margin-top: 5rem;
@@ -15,11 +13,8 @@
       padding-top: 0.7rem;
       font-size: 90px;
       color: $primary-color;
-      // text-transform: uppercase;
     }
     div {
-      // border: 1px solid white;
-      // padding: 1rem;
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.479);
       text-align: center;
@@ -34,9 +29,6 @@
         font-weight: bold;
         -webkit-font-smoothing: antialiased;
         padding: 0.7rem 1.4rem;
-        // color: rgb(221, 214, 214);
-        // text-transform: uppercase;
-        // color: rgb(3, 3, 3);
         position: relative;
         left: 3px;
       }
