@@ -7,10 +7,10 @@ import domain from "../../util/domain";
 
 // compoenents
 
-import Form from "../form/Form";
-import Posts from "../posts/Posts";
-import Modal from "../modal/Modal";
-import Hero from "../hero/Hero";
+import Form from "../../components/form/Form";
+import Posts from "../../components/posts/Posts";
+import Modal from "../../components/modal/Modal";
+import Hero from "../../components/hero/Hero";
 
 // context
 import UserContext from "../../context/UserContext";
@@ -32,8 +32,8 @@ function Home() {
 
   async function getTravelStories() {
     try {
-      const response = await axios.get(`${domain}/api/travel-post`);
-
+      const response = await axios.get(`${domain}/api/all-travel-posts`);
+      // const response = await axios.get(`${domain}/api/travel-post`);
       setTravelStories(response.data);
     } catch (err) {
       console.log("an error has occured", err);
@@ -59,6 +59,7 @@ function Home() {
           key={i}
           item={item}
           getTravelStories={getTravelStories}
+          userID={item.user}
           toggleModal={toggleModal}
         />
       );
@@ -72,7 +73,6 @@ function Home() {
           toggleModal={toggleModal}
           cloudId={cloudId}
           getTravelStories={getTravelStories}
-          
         />
       )}
       <Hero />

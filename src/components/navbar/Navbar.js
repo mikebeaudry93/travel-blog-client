@@ -27,7 +27,12 @@ function Navbar() {
           <Link to="/register">Register</Link>
         </div>
       ) : (
-        user && <button onClick={logOut}>Logout</button>
+        user && (
+          <div>
+            <Link to="/posts">My Posts</Link>
+            <button onClick={logOut}>Logout</button>
+          </div>
+        )
       )}
     </div>
   );
